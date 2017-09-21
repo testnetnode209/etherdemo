@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="Collect Ethereum donations on your site for free">
+    <!--<link rel="icon" href="../../../../favicon.ico">-->
+
+    <title>Koosi Token Presale</title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css"
+          integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
+    <link href="css/narrow-jumbotron.css" rel="stylesheet">
+</head>
+
+<body>
+
+<div class="container">
+    <div class="header clearfix">
+        <nav>
+            <ul class="nav nav-pills float-right">
+                <li class="nav-item">
+                    <a class="nav-link" href="https://wordpress.org/plugins/ethereum-donation/" title="Wordpress plugin" target="_blank">Wordpress plugin</a>
+                </li>
+            </ul>
+        </nav>
+        <h4 class="text-muted">Ethereum Donations online</h4>
+    </div>
+
+    <div class="jumbotron">
+        
+
+            <h1 class="display-5">SmartBlocker Contract address</h1>
+            <p class="lead"><small>to <strong>0xc0d0f6f2576E800D9B103cEAf23766FA09776Ce4</strong></small></p>
+
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="alert alert-success" role="alert" id="success-msg" style="display:none;"></div>
+                    <div class="alert alert-danger" role="alert" id="error-msg" style="display:none;"></div>
+                    <div class="alert alert-info" role="alert" id="info-msg" style="display:none;">
+                        You need <a href="https://metamask.io/" target="_blank" title="MetaMask wallet">MetaMask</a> browser plugin to for instant and smoother trnasaction from a form.
+                        Please, copy address or scan QR-code and make donation with your Ethereum wallet.
+                        <div id="qrcode"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-sm-12">
+                    <input id="address" type="hidden" value="0xc0d0f6f2576E800D9B103cEAf23766FA09776Ce4"/>
+                    <div class="input-group input-group-lg">
+                        <span class="input-group-addon">ETH</span>
+                        <input id="amount" class="form-control" placeholder="amount"
+                               value="0.01" pattern="\d+(\.\d{1,18})?" required disabled />
+                        <span class="input-group-btn">
+                            <button id="donate-btn" class="btn btn-primary" type="button" disabled>Donate</button>
+                        </span>
+                    </div>
+                </div>
+            </div>
+
+        
+    </div>
+
+    <div class="row marketing">
+        <div class="col-lg-8">
+            <h4>For webmasters&nbsp;&nbsp;&nbsp;<a href="index.html" class="btn btn-outline-primary" title="Try this!">Try this!</a></h4>
+
+            <ul>
+                <li>Collect Ethereum donations online for free. No fees.</li>
+                <li>Make it easy for users to donate you by using <a href="https://metamask.io/" title="MetaMask wallet" target="_blank">MetaMask</a> wallet.</li>
+                <li>Absolutely secure. Fast and simple.</li>
+                <li>Free plugins available:
+                    <ul>
+                        <li><a href="https://wordpress.org/plugins/ethereum-donation/" title="Wordpress plugin" target="_blank">Wordpress plugin</a>
+                            (also you can <a href="download/etherdonation-wordpress.zip" title="Download Wordpress zipped plugin">download zip</a>
+                            or <a href="https://github.com/alexsslayer/etherdonation-wordpress" title="View sources on GitHub" target="_blank">view sources</a>)</li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+        <div class="col-lg-4">
+            <h4>Need more ETH?</h4>
+            <hr/>
+
+            <script type="text/javascript">
+                function open_widget(a, e) {
+                    e.preventDefault();
+                    var link = a.href;
+                    window.open(link, 'Changelly', 'width=600,height=470,toolbar=0,menubar=0,location=0,status=1,scrollbars=1,resizable=0,left=0,top=0');
+                    return false;
+                }
+            </script>
+            <a onclick="open_widget(this, event);" href="https://changelly.com/widget/v1?auth=email&amp;from=USD&amp;to=ETH&amp;merchant_id=a6d9665520b8&amp;address=&amp;amount=100&amp;ref_id=a6d9665520b8&amp;color=00cf70">
+                <img src="i/changelly_pay_button_exchange.png" alt="Changelly" />
+            </a>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <h6 class="text-muted text-right">Support us: ETH <a href="index-to=0xed6ca7d908f897d0b0d5f9b9e7aa470698e10b1b.html" title="Account to donate">0xed6ca7d908f897d0b0d5f9b9e7aa470698e10b1b</a></h6>
+        <p class="text-right">email: support@etherdonation.com<br/>&copy; EtherDonation.com 2017</p>
+    </footer>
+
+</div> <!-- /container -->
+
+
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"
+            integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+            crossorigin="anonymous"></script>
+    <script src="js/qrcode.min.js"></script>
+    <script src="js/donate.js"></script>
+
+<script src="js/ie10-viewport-bug-workaround.js"></script>
+</body>
+</html>
