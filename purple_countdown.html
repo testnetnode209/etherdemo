@@ -1,0 +1,116 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Site description here.">
+    <meta name="author" content="Author of site here.">
+
+    <title>Canvas Countdown</title>
+
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
+
+    <style>
+        html {
+            overflow:hidden;
+        }
+    </style>
+</head>
+
+<body style='border-radius:4px;'>
+
+    <div class='text-center'
+         style='margin:0px;
+                height:100%;
+                padding:10px 0;
+                background-color:#131826;
+                color:#eee;
+                border-radius:4px;'>
+        <h3 style='margin:0;'>Ammbr presale ends after</h3>
+        <div class='row'>
+            <div class='hidden-xs col-sm-1'></div> <!-- spacer -->
+            <div class='hidden-xs col-sm-2'> <!-- date -->
+                <h3 style='margin-bottom:0px;'>September</h3>
+                <h1 style="margin:0;">25</h1>
+            </div>
+            <div class='col-xs-12 col-sm-8'> <!-- days hours min sec cols -->
+                <div class='col-xs-3'>
+                    <h2 id='days'></h2>
+                    <p><strong>Days</strong></p>
+                </div>
+                <div class='col-xs-3'>
+                    <h2 id='hours'></h2>
+                    <p><strong>Hours</strong></p>
+                </div>
+                <div class='col-xs-3'>
+                    <h2 id='minutes'></h2>
+                    <p><strong>Minutes</strong></p>
+                </div>
+                <div class='col-xs-3'>
+                    <h2 id='seconds'></h2>
+                    <p><strong>Seconds</strong></p>
+                </div>
+            </div>
+            <div class='hidden-xs col-sm-1'></div> <!-- spacer -->
+        </div>
+    </div>
+
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+    <script src="//code.jquery.com/jquery-1.11.2.min.js"></script>
+
+    <script>
+        canvasDateString = 'Sep 25 2017';
+
+        cDate = new Date(canvasDateString);
+        function getDiffObj(date1, date2){
+            // Return diff obj with keys:
+            // 'days', 'hours', 'minutes', 'seconds'
+
+            date2 = date2 || new Date();
+            diff = Math.abs(date1 - date2)
+
+            dRatio = 86400000
+            hRatio = dRatio / 24
+            mRatio = hRatio / 60
+            sRatio = mRatio / 60
+
+            d = Math.floor(diff / dRatio)
+            remainder = diff % dRatio
+            h = Math.floor(remainder / hRatio)
+            remainder = diff % hRatio
+            m = Math.floor(remainder / mRatio)
+            remainder = diff % mRatio
+            s = Math.floor(remainder / sRatio)
+            remainder = diff % sRatio
+
+            obj = {
+                'days': d,
+                'hours': h,
+                'minutes': m,
+                'seconds': s
+            }
+            return obj
+        }
+
+        function renderCountdown(diffObj){
+            // Render countdown days, hours, minutes, and seconds in elements
+            document.getElementById('days').innerHTML = diffObj['days'];
+            document.getElementById('hours').innerHTML = diffObj['hours'];
+            document.getElementById('minutes').innerHTML = diffObj['minutes'];
+            document.getElementById('seconds').innerHTML = diffObj['seconds'];
+        }
+
+        // Render countdown when page is loaded
+        renderCountdown(getDiffObj(cDate));
+
+        // Render countdown every second, forever
+        setInterval(function () {renderCountdown(getDiffObj(cDate))}, 1000);
+    </script>
+
+</body>
+
+</html>
